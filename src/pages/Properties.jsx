@@ -78,6 +78,13 @@ function Properties() {
                   <option>Alger</option>
                   <option>Oran</option>
                   <option>Mostaganem</option>
+                  <option>Tipaza</option>
+                  <option>Béjaïa</option>
+                  <option>Djenet</option>
+                  <option>Tlemcen</option>
+                  <option>Annaba</option>
+                  <option>Boumerdès</option>
+                  
                 </select>
               </div>
 
