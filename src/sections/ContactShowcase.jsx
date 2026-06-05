@@ -24,13 +24,13 @@ function ContactShowcase() {
         <div className="contact-showcase__panel">
           <a href="tel:+213555241890" className="contact-showcase__card">
             <span className="contact-showcase__label">Téléphone</span>
-            <strong>+213 555 24 18 90</strong>
+            <strong>+213 667822379</strong>
             <small>Appelez directement un conseiller</small>
           </a>
 
-          <a href="mailto:contact@elevia-estates.com" className="contact-showcase__card">
+          <a href="mailto:elevia-estates@gmail.com" className="contact-showcase__card">
             <span className="contact-showcase__label">Email</span>
-            <strong>contact@elevia-estates.com</strong>
+            <strong>elevia-estates@gmail.com</strong>
             <small>Pour une demande d’information ou de visite</small>
           </a>
 

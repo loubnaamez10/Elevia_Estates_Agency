@@ -161,7 +161,7 @@ function PropertyDetail() {
                     Appeler l’agence
                   </a>
                   <a
-                    href="mailto:contact@elevia-estates.com"
+                    href="mailto:elevia-estates@gmail.com"
                     className="property-detail__btn property-detail__btn--secondary"
                   >
                     Demander une visite

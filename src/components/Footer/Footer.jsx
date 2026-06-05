@@ -17,6 +17,7 @@ function Footer() {
         <div>
           <h3 className="footer__title">Navigation</h3>
           <div className="footer__links">
+            <a href="/">Accueil</a>
             <a href="/properties">Propriétés</a>
             <a href="#about">Agence</a>
             <a href="#contact">Contact</a>
@@ -26,9 +27,9 @@ function Footer() {
         <div>
           <h3 className="footer__title">Coordonnées</h3>
           <div className="footer__links">
-            <a href="tel:+213555000000">+213 555 00 00 00</a>
-            <a href="mailto:contact@elevia-estates.com">
-              contact@elevia-estates.com
+            <a href="tel:+213555000000">+213 667822379</a>
+            <a href="mailto:elevia-estates@gmail.com">
+              elevia-estates@gmail.com
             </a>
             <span>Alger, Algérie</span>
           </div>
