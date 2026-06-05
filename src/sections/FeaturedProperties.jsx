@@ -2,7 +2,7 @@ import PropertyCard from '../components/PropertyCard/PropertyCard'
 import properties from '../data/properties'
 
 function FeaturedProperties() {
-  const featuredProperties = properties.filter((property) => property.featured)
+  const featuredProperties = properties.filter((property) => property.featured).slice(0, 3)
 
   return (
     <section className="section featured-properties" id="properties">
