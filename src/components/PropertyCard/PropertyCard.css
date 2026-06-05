@@ -1,0 +1,67 @@
+.property-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.property-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card);
+}
+
+.property-card__image-wrapper {
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+.property-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.property-card__content {
+  padding: var(--space-6);
+}
+
+.property-card__top,
+.property-card__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.property-card__top {
+  margin-bottom: var(--space-4);
+}
+
+.property-card__type,
+.property-card__surface {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+.property-card__title {
+  margin-bottom: var(--space-3);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.property-card__location {
+  margin-bottom: var(--space-6);
+  color: var(--color-text-muted);
+}
+
+.property-card__price {
+  font-size: 1.05rem;
+}
+
+.property-card__link {
+  color: var(--color-primary);
+  font-weight: 600;
+}
