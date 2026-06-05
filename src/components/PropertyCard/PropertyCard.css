@@ -111,3 +111,12 @@
     align-items: flex-start;
   }
 }
+
+.property-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1rem;
+  margin-bottom: var(--space-5);
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+}

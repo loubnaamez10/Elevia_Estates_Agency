@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './PropertyCard.css'
 
 function PropertyCard({ property }) {
@@ -20,11 +21,17 @@ function PropertyCard({ property }) {
         <h3 className="property-card__title">{property.title}</h3>
         <p className="property-card__location">{property.location}</p>
 
+        <div className="property-card__meta">
+          <span>{property.bedrooms} chambres</span>
+          <span>{property.bathrooms} salles de bain</span>
+        </div>
+
         <div className="property-card__bottom">
           <strong className="property-card__price">{property.price}</strong>
-          <a href="#contact" className="property-card__link">
-            Demander une visite
-          </a>
+
+          <Link to={`/properties/${property.id}`} className="property-card__link">
+            Voir le bien
+          </Link>
         </div>
       </div>
     </article>
