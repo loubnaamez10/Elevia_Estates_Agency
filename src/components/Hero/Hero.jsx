@@ -4,17 +4,24 @@ function Hero() {
   return (
     <section className="hero">
       <div className="hero__overlay"></div>
+      <div className="hero__grain"></div>
 
       <div className="container hero__content">
-        <p className="hero__eyebrow">Agence immobilière premium à Alger</p>
+        <div className="hero__badge">
+          <span className="hero__badge-dot"></span>
+          Collection privée • Alger / Oran / Littoral
+        </div>
+
+        <p className="hero__eyebrow">Agence immobilière premium</p>
 
         <h1 className="hero__title">
-          L’immobilier d’exception dans une expérience plus élégante.
+          Des propriétés rares, présentées avec plus de calme, plus de goût.
         </h1>
 
         <p className="hero__text">
-          Nous accompagnons l’achat, la vente et l’investissement de biens haut
-          de gamme avec un sens du détail, du conseil et de la discrétion.
+          ÉLÉVIA Estates accompagne une clientèle exigeante dans l’acquisition,
+          la vente et la valorisation de biens d’exception avec une esthétique
+          sobre et un service très personnalisé.
         </p>
 
         <div className="hero__actions">
@@ -22,26 +29,26 @@ function Hero() {
             Explorer les biens
           </a>
 
-          <a href="#about" className="hero__btn hero__btn--secondary">
-            Découvrir l’agence
+          <a href="#contact" className="hero__btn hero__btn--secondary">
+            Planifier un échange
           </a>
         </div>
 
         <div className="hero__stats">
-          <div>
+          <article className="hero__stat">
             <strong>120+</strong>
-            <span>biens vendus</span>
-          </div>
+            <span>transactions accompagnées</span>
+          </article>
 
-          <div>
+          <article className="hero__stat">
             <strong>15</strong>
-            <span>consultants experts</span>
-          </div>
+            <span>consultants spécialisés</span>
+          </article>
 
-          <div>
-            <strong>3</strong>
-            <span>villes couvertes</span>
-          </div>
+          <article className="hero__stat">
+            <strong>24h</strong>
+            <span>pour une première prise en charge</span>
+          </article>
         </div>
       </div>
     </section>
