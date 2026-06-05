@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import { useEffect, useMemo, useState } from 'react'
 import Header from '../components/Header/Header'
 import Footer from '../components/Footer/Footer'
+import PropertyCard from '../components/PropertyCard/PropertyCard'
 import properties from '../data/properties'
 import './PropertyDetail.css'
 
@@ -13,6 +14,17 @@ function PropertyDetail() {
     if (!property) return []
     if (property.gallery && property.gallery.length > 0) return property.gallery
     return [property.image]
+  }, [property])
+
+  const similarProperties = useMemo(() => {
+    if (!property) return []
+
+    return properties
+      .filter((item) => item.id !== property.id)
+      .filter(
+        (item) => item.type === property.type || item.city === property.city,
+      )
+      .slice(0, 3)
   }, [property])
 
   const [activeImage, setActiveImage] = useState('')
@@ -140,6 +152,25 @@ function PropertyDetail() {
             </div>
           </div>
         </section>
+
+        {similarProperties.length > 0 && (
+          <section className="section property-detail__similar">
+            <div className="container">
+              <div className="property-detail__similar-intro">
+                <p className="property-detail__eyebrow">À découvrir aussi</p>
+                <h2 className="property-detail__similar-title">
+                  Des biens proches dans le même esprit.
+                </h2>
+              </div>
+
+              <div className="property-detail__similar-grid">
+                {similarProperties.map((item) => (
+                  <PropertyCard key={item.id} property={item} />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
       </main>
 
       <Footer />

@@ -211,3 +211,33 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+.property-detail__similar {
+  background: var(--color-surface);
+}
+
+.property-detail__similar-intro {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 760px;
+  margin-bottom: var(--space-10);
+}
+
+.property-detail__similar-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+
+.property-detail__similar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+@media (max-width: 992px) {
+  .property-detail__similar-grid {
+    grid-template-columns: 1fr;
+  }
+}
