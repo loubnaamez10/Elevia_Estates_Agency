@@ -4,7 +4,7 @@ import Footer from '../components/Footer/Footer'
 import FeaturedProperties from '../sections/FeaturedProperties'
 import AboutPreview from '../sections/AboutPreview'
 import Testimonials from '../sections/Testimonials'
-import ContactPreview from '../sections/ContactPreview'
+import ContactShowcase from '../sections/ContactShowcase'
 
 function Home() {
   return (
@@ -15,7 +15,7 @@ function Home() {
         <FeaturedProperties />
         <AboutPreview />
         <Testimonials />
-        <ContactPreview />
+        <ContactShowcase />
       </main>
       <Footer />
     </>
