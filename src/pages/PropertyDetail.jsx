@@ -28,6 +28,15 @@ function PropertyDetail() {
   }, [property])
 
   const [activeImage, setActiveImage] = useState('')
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    date: '',
+    contactMethod: 'Email',
+    message: '',
+  })
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
   useEffect(() => {
     if (gallery.length > 0) {
@@ -50,6 +59,28 @@ function PropertyDetail() {
         <Footer />
       </>
     )
+  }
+
+  const handleChange = (event) => {
+    const { name, value } = event.target
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    setIsSubmitted(true)
+
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      date: '',
+      contactMethod: 'Email',
+      message: '',
+    })
   }
 
   return (
@@ -149,6 +180,116 @@ function PropertyDetail() {
                 Pensé pour une clientèle exigeante, ce bien conjugue emplacement,
                 confort et élégance dans une approche immobilière premium.
               </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="section property-detail__inquiry">
+          <div className="container property-detail__inquiry-grid">
+            <div className="property-detail__inquiry-copy">
+              <p className="property-detail__eyebrow">Demande de visite</p>
+              <h2 className="property-detail__inquiry-title">
+                Organisez une visite privée de ce bien.
+              </h2>
+              <p className="property-detail__inquiry-text">
+                Laissez vos coordonnées et vos préférences. Notre équipe vous
+                recontacte rapidement pour confirmer une disponibilité adaptée.
+              </p>
+            </div>
+
+            <div className="property-detail__form-card">
+              {isSubmitted ? (
+                <div className="property-detail__success">
+                  <h3>Demande envoyée</h3>
+                  <p>
+                    Merci. Notre équipe reviendra vers vous rapidement pour
+                    organiser la visite.
+                  </p>
+                </div>
+              ) : (
+                <form className="property-detail__form" onSubmit={handleSubmit}>
+                  <div className="property-detail__form-group">
+                    <label htmlFor="name">Nom complet</label>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+
+                  <div className="property-detail__form-row">
+                    <div className="property-detail__form-group">
+                      <label htmlFor="email">Email</label>
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+
+                    <div className="property-detail__form-group">
+                      <label htmlFor="phone">Téléphone</label>
+                      <input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div className="property-detail__form-row">
+                    <div className="property-detail__form-group">
+                      <label htmlFor="date">Date souhaitée</label>
+                      <input
+                        id="date"
+                        name="date"
+                        type="date"
+                        value={formData.date}
+                        onChange={handleChange}
+                      />
+                    </div>
+
+                    <div className="property-detail__form-group">
+                      <label htmlFor="contactMethod">Contact préféré</label>
+                      <select
+                        id="contactMethod"
+                        name="contactMethod"
+                        value={formData.contactMethod}
+                        onChange={handleChange}
+                      >
+                        <option>Email</option>
+                        <option>Téléphone</option>
+                        <option>WhatsApp</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="property-detail__form-group">
+                    <label htmlFor="message">Message</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows="5"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder={`Bonjour, je souhaite organiser une visite pour ${property.title}.`}
+                    />
+                  </div>
+
+                  <button type="submit" className="property-detail__form-submit">
+                    Envoyer la demande
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </section>
