@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
+import { useEffect, useMemo, useState } from 'react'
 import Header from '../components/Header/Header'
 import Footer from '../components/Footer/Footer'
 import properties from '../data/properties'
@@ -7,6 +8,20 @@ import './PropertyDetail.css'
 function PropertyDetail() {
   const { id } = useParams()
   const property = properties.find((item) => item.id === Number(id))
+
+  const gallery = useMemo(() => {
+    if (!property) return []
+    if (property.gallery && property.gallery.length > 0) return property.gallery
+    return [property.image]
+  }, [property])
+
+  const [activeImage, setActiveImage] = useState('')
+
+  useEffect(() => {
+    if (gallery.length > 0) {
+      setActiveImage(gallery[0])
+    }
+  }, [gallery])
 
   if (!property) {
     return (
@@ -47,11 +62,29 @@ function PropertyDetail() {
         <section className="property-detail__main section">
           <div className="container property-detail__grid">
             <div className="property-detail__gallery">
-              <img
-                src={property.image}
-                alt={property.title}
-                className="property-detail__image"
-              />
+              <div className="property-detail__main-image-wrap">
+                <img
+                  src={activeImage}
+                  alt={property.title}
+                  className="property-detail__image"
+                />
+              </div>
+
+              <div className="property-detail__thumbs">
+                {gallery.map((img, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    className={`property-detail__thumb ${
+                      activeImage === img ? 'property-detail__thumb--active' : ''
+                    }`}
+                    onClick={() => setActiveImage(img)}
+                    aria-label={`Voir image ${index + 1}`}
+                  >
+                    <img src={img} alt={`${property.title} vue ${index + 1}`} />
+                  </button>
+                ))}
+              </div>
             </div>
 
             <aside className="property-detail__sidebar">
@@ -78,7 +111,10 @@ function PropertyDetail() {
                 </div>
 
                 <div className="property-detail__actions">
-                  <a href="tel:+213555000000" className="property-detail__btn property-detail__btn--primary">
+                  <a
+                    href="tel:+213555000000"
+                    className="property-detail__btn property-detail__btn--primary"
+                  >
                     Appeler l’agence
                   </a>
                   <a
